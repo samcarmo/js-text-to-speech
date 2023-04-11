@@ -24,6 +24,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById("speak-btn").addEventListener("click", () => {
             const textInput = document.getElementById("text-input");
+            const volume = +document.getElementById("volume").value         // Samuel
+            const rate = +document.getElementById("rate").value             // Samuel
+            const pitch = +document.getElementById("pitch").value           // Samuel
             const text = textInput.value.trim();
 
             if (!text) {
@@ -42,10 +45,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 .find((voice) => voice.name === selectedVoiceName);
             utterance.voice = selectedVoice;
             // Optional: Customize the rate and pitch
-            utterance.pitch = 1; // Set the pitch between 0 (lowest) and 2 (highest)
-            utterance.rate = 1; // Set the speech rate (0.1 to 10)
+            utterance.pitch = pitch; // Set the pitch between 0 (lowest) and 2 (highest)    Change the number 1 to the pitch variable
+            utterance.rate = rate; // Set the speech rate (0.1 to 10)                       Change the number 1 to the rate variable
 
-            utterance.pitch = utterance.volume = 1; // Set the speech volume (0 to 1)
+            utterance.pitch = utterance.volume = volume; // Set the speech volume (0 to 1)  Change the number 1 to the volume variable
 
             // Speak the text
             speechSynthesis.speak(utterance);

@@ -58,3 +58,20 @@ select {
     resize: none;
     margin-bottom: 10px;
 }
+
+h1 {
+    text-align: center;
+}
+
+.group {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 745px) {
+    .group {
+        display: grid;
+        justify-content: unset;
+    }
+}
