@@ -49,7 +49,7 @@ Nesse projeto é utilizado a [Web Speech API](https://developer.mozilla.org/en-U
 
 ### Features
 1. Controle dos botões de range por comando de voz.
-2. Selecione qualquer voz pt-BR para traduzir a pagina para Português (Outras idiomas utilizam o Inglês).
+2. Selecione qualquer voz pt-BR para traduzir a pagina para Português (Outros idiomas utilizam o Inglês).
 
 Foram implementados alguns comandos, para utiliza-los clique no botão Comando e diga alguns dos comandos listados abaixo:
 - "aumentar volume"
