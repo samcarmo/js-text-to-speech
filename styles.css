@@ -45,6 +45,13 @@ button {
     margin-top: 20px;
 }
 
+.btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 button:hover,
 .doc:hover {
     background-color: #0056b3;
