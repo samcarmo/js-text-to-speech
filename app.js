@@ -1,4 +1,5 @@
 // Initialize when the page loads
+
 window.addEventListener("DOMContentLoaded", () => {
     if ("speechSynthesis" in window) {
         // Get the voice-select element
@@ -22,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
             speechSynthesis.onvoiceschanged = populateVoiceList;
         }
 
-        document.getElementById("speak-btn").addEventListener("click", () => {
+        document.getElementById("speak").addEventListener("click", () => {
             const textInput = document.getElementById("text-input");
             const volume = +document.getElementById("volume").value         // Samuel
             const rate = +document.getElementById("rate").value             // Samuel
@@ -58,3 +59,95 @@ window.addEventListener("DOMContentLoaded", () => {
         alert("Your browser does not support the Web Speech API");
     }
 });
+
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList
+var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+var recognition = new SpeechRecognition();
+
+var language
+
+document.getElementById("voice-select").addEventListener("click", () => {
+
+    language = document.getElementById('voice-select').value
+    language = language.slice(-6)
+    language = language.slice(0, 5)
+
+    // if (language != "pt-BR" && language != "en-GB") {
+    //     language = "en-US"
+    // }
+
+    document.documentElement.setAttribute("lang", language)
+    console.log(language)
+    if (language == "pt-BR") {
+        document.getElementById("title").innerHTML = "JavaScript<br>Texto para fala"
+        document.getElementById("speak").innerHTML = "Texto para fala"
+        document.getElementById("listen").innerHTML = "Comando"
+        document.getElementById("doc").innerHTML = "Documentação"
+        document.getElementById("rate-label").innerHTML = "Vel"
+        document.getElementById("pitch-label").innerHTML = "Tom"
+    } else {
+        document.getElementById("title").innerHTML = "JavaScript<br>Text-to-Speech"
+        document.getElementById("speak").innerHTML = "Text-to-Speech"
+        document.getElementById("listen").innerHTML = "Command"
+        document.getElementById("doc").innerHTML = "Doc"
+        document.getElementById("rate-label").innerHTML = "Rate"
+        document.getElementById("pitch-label").innerHTML = "Pitch"
+    }
+
+    recognition.continuous = false
+    recognition.lang = language
+    recognition.interimResults = false
+    recognition.maxAlternatives = 1
+})
+
+document.getElementById("listen").addEventListener("click", () => {
+    recognition.start()
+})
+
+recognition.onresult = function (event) {
+    var command = event.results[0][0].transcript;
+    applyCommand(command.toLowerCase())
+}
+
+recognition.onspeechend = function () {
+    recognition.stop();
+}
+
+function applyCommand(command) {
+    console.log(command)
+    if (command == "turn the volume up" || command == "turn up the volume" || command == "aumentar volume") {
+        document.getElementById('volume').value + 0.1
+    } else if (command == "turn the volume down" || command == "turn down the volume" || command == "diminuir volume") {
+        document.getElementById('volume').value - 0.1
+    } else if (command == "turn off the volume" || command == "turn the volume off" || command == "desligar volume") {
+        document.getElementById('volume').value = 0
+    } else if (command == "turn on the volume" || command == "turn the volume on" || command == "ligar volume") {
+        document.getElementById('volume').value = 0.5
+    } else if (command == "set volume to maximum" || command == "definir volume no maximo") {
+        document.getElementById('volume').value = 1
+    } else if (command == "turn the rate up" || command == "turn up the rate" || command == "aumentar velocidade") {
+        document.getElementById('rate').value + 0.1
+    } else if (command == "turn the rate down" || command == "turn down the rate" || command == "diminuir velocidade") {
+        document.getElementById('rate').value - 0.1
+    } else if (command == "set minimum rate" || command == "definir velocidade no minimo") {
+        document.getElementById('rate').value = 0.1
+    } else if (command == "set normal rate" || command == "definir velocidade normal") {
+        document.getElementById('rate').value = 0.5
+    } else if (command == "set maximum rate" || command == "definir velocidade no maximo") {
+        document.getElementById('rate').value = 10
+    } else if (command == "turn the pitch up" || command == "turn up the pitch" || command == "aumentar tom") {
+        document.getElementById('pitch').value + 1
+    } else if (command == "turn the pitch down" || command == "turn down the pitch" || command == "diminuir tom") {
+        document.getElementById('pitch').value - 1
+    } else if (command == "turn off the pitch" || command == "turn the pitch off" || command == "desligar tom") {
+        document.getElementById('pitch').value = 0
+    } else if (command == "turn on the pitch" || command == "turn the pitch on" || command == "ligar tom") {
+        document.getElementById('pitch').value = 1
+    } else if (command == "set pitch to maximum" || command == "definir tom no máximo") {
+        document.getElementById('pitch').value = 2
+    } else {
+        return false
+    }
+}
