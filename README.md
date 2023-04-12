@@ -2,9 +2,7 @@
 
 ## Summary
 1. [English](https://github.com/samcarmo/js-text-to-speech#english)
-  - [Features](https://github.com/samcarmo/js-text-to-speech#features)
 2. [Portuguese](https://github.com/samcarmo/js-text-to-speech#portuguese)
-  - [Features](https://github.com/samcarmo/js-text-to-speech#features-1)
 
 
 ## English
