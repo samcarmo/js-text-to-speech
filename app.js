@@ -82,7 +82,6 @@ document.getElementById("voice-select").addEventListener("click", () => {
     // }
 
     document.documentElement.setAttribute("lang", language)
-    console.log(language)
     if (language == "pt-BR") {
         document.getElementById("title").innerHTML = "JavaScript<br>Texto para fala"
         document.getElementById("speak").innerHTML = "Texto para fala"
@@ -121,7 +120,6 @@ recognition.onspeechend = function () {
 }
 
 function applyCommand(command) {
-    console.log(command)
     if (command == "turn the volume up" || command == "turn up the volume" || command == "aumentar volume") {
         volume = +document.getElementById('volume').value
         document.getElementById('volume').value = volume + 0.1
