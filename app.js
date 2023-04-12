@@ -67,6 +67,9 @@ var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEv
 var recognition = new SpeechRecognition();
 
 var language
+var volume
+var rate
+var pitch
 
 document.getElementById("voice-select").addEventListener("click", () => {
 
@@ -87,13 +90,15 @@ document.getElementById("voice-select").addEventListener("click", () => {
         document.getElementById("doc").innerHTML = "Documentação"
         document.getElementById("rate-label").innerHTML = "Vel"
         document.getElementById("pitch-label").innerHTML = "Tom"
+        document.getElementById("text-input").placeholder = "Digite o seu texto aqui"
     } else {
         document.getElementById("title").innerHTML = "JavaScript<br>Text-to-Speech"
         document.getElementById("speak").innerHTML = "Text-to-Speech"
         document.getElementById("listen").innerHTML = "Command"
-        document.getElementById("doc").innerHTML = "Doc"
+        document.getElementById("doc").innerHTML = "Documentation"
         document.getElementById("rate-label").innerHTML = "Rate"
         document.getElementById("pitch-label").innerHTML = "Pitch"
+        document.getElementById("text-input").placeholder = "Type your text here"
     }
 
     recognition.continuous = false
@@ -118,9 +123,11 @@ recognition.onspeechend = function () {
 function applyCommand(command) {
     console.log(command)
     if (command == "turn the volume up" || command == "turn up the volume" || command == "aumentar volume") {
-        document.getElementById('volume').value + 0.1
+        volume = +document.getElementById('volume').value
+        document.getElementById('volume').value = volume + 0.1
     } else if (command == "turn the volume down" || command == "turn down the volume" || command == "diminuir volume") {
-        document.getElementById('volume').value - 0.1
+        volume = +document.getElementById('volume').value
+        document.getElementById('volume').value = volume - 0.1
     } else if (command == "turn off the volume" || command == "turn the volume off" || command == "desligar volume") {
         document.getElementById('volume').value = 0
     } else if (command == "turn on the volume" || command == "turn the volume on" || command == "ligar volume") {
@@ -128,9 +135,11 @@ function applyCommand(command) {
     } else if (command == "set volume to maximum" || command == "definir volume no maximo") {
         document.getElementById('volume').value = 1
     } else if (command == "turn the rate up" || command == "turn up the rate" || command == "aumentar velocidade") {
-        document.getElementById('rate').value + 0.1
+        rate = +document.getElementById('rate').value
+        document.getElementById('rate').value = rate + 0.1
     } else if (command == "turn the rate down" || command == "turn down the rate" || command == "diminuir velocidade") {
-        document.getElementById('rate').value - 0.1
+        rate = +document.getElementById('rate').value
+        document.getElementById('rate').value = rate - 0.1
     } else if (command == "set minimum rate" || command == "definir velocidade no minimo") {
         document.getElementById('rate').value = 0.1
     } else if (command == "set normal rate" || command == "definir velocidade normal") {
@@ -138,16 +147,16 @@ function applyCommand(command) {
     } else if (command == "set maximum rate" || command == "definir velocidade no maximo") {
         document.getElementById('rate').value = 10
     } else if (command == "turn the pitch up" || command == "turn up the pitch" || command == "aumentar tom") {
-        document.getElementById('pitch').value + 1
+        pitch = +document.getElementById('pitch').value
+        document.getElementById('pitch').value = pitch + 1
     } else if (command == "turn the pitch down" || command == "turn down the pitch" || command == "diminuir tom") {
-        document.getElementById('pitch').value - 1
+        pitch = +document.getElementById('pitch').value
+        document.getElementById('pitch').value = pitch - 1
     } else if (command == "turn off the pitch" || command == "turn the pitch off" || command == "desligar tom") {
         document.getElementById('pitch').value = 0
     } else if (command == "turn on the pitch" || command == "turn the pitch on" || command == "ligar tom") {
         document.getElementById('pitch').value = 1
     } else if (command == "set pitch to maximum" || command == "definir tom no máximo") {
         document.getElementById('pitch').value = 2
-    } else {
-        return false
     }
 }
