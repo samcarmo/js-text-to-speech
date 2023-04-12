@@ -64,7 +64,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var recognition = new SpeechRecognition();
+var recognition = new SpeechRecognition()
 
 var language
 var volume
@@ -76,10 +76,6 @@ document.getElementById("voice-select").addEventListener("click", () => {
     language = document.getElementById('voice-select').value
     language = language.slice(-6)
     language = language.slice(0, 5)
-
-    // if (language != "pt-BR" && language != "en-GB") {
-    //     language = "en-US"
-    // }
 
     document.documentElement.setAttribute("lang", language)
     if (language == "pt-BR") {
