@@ -1,13 +1,20 @@
-# js-text-to-speech
+# JS-TEXT-TO-SPEECH
+
+## Summary
+1. [English](https://github.com/samcarmo/js-text-to-speech#english)
+  - [Features](https://github.com/samcarmo/js-text-to-speech#features)
+2. [Portuguese](https://github.com/samcarmo/js-text-to-speech#portuguese)
+  - [Features](https://github.com/samcarmo/js-text-to-speech#features-1)
+
 
 ## English
-Project made using [Niall Maher](https://www.codu.co/niall) article published at [Codú](https://www.codu.co/articles/portfolio-project-javascript-text-to-speech-app-using-the-web-speech-api-flbzkvcn)
+Project made using [Niall Maher](https://www.codu.co/niall) article published at [Codú](https://www.codu.co/articles/portfolio-project-javascript-text-to-speech-app-using-the-web-speech-api-flbzkvcn).
 
-In this project is used the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+In this project is used the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API).
 
 ### Features
-1. Control range buttons with voice commands
-2. Select any pt-BR voice to translate the page to Portuguese (Any other language uses English)
+1. Control range buttons with voice commands.
+2. Select any pt-BR voice to translate the page to Portuguese (Any other language uses English).
 
 Some commands have been implemented, to try them just click at "Command" button and say any of the commands listed below:
 - "turn the volume up"
@@ -38,13 +45,13 @@ Some commands have been implemented, to try them just click at "Command" button 
 
 
 ## Portuguese
-Projeto feito utilizando um artigo do [Niall Maher](https://www.codu.co/niall) publicado em [Codú](https://www.codu.co/articles/portfolio-project-javascript-text-to-speech-app-using-the-web-speech-api-flbzkvcn)
+Projeto feito utilizando um artigo do [Niall Maher](https://www.codu.co/niall) publicado em [Codú](https://www.codu.co/articles/portfolio-project-javascript-text-to-speech-app-using-the-web-speech-api-flbzkvcn).
 
-Nesse projeto é utilizado a [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+Nesse projeto é utilizado a [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API).
 
 ### Features
-1. Controle dos botões de range por comando de voz
-2. Selecione qualquer voz pt-BR para traduzir a pagina para Português (Outras idiomas utilizam o Inglês)
+1. Controle dos botões de range por comando de voz.
+2. Selecione qualquer voz pt-BR para traduzir a pagina para Português (Outras idiomas utilizam o Inglês).
 
 Foram implementados alguns comandos, para utiliza-los clique no botão Comando e diga alguns dos comandos listados abaixo:
 - "aumentar volume"
